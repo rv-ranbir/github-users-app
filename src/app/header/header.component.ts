@@ -21,4 +21,19 @@ export class HeaderComponent implements OnInit {
     form.reset();
   }
 
+  sortByAZ() {
+    this.useroneService.sortUsersAZ();
+  }
+
+  sortByZA() {
+    this.useroneService.sortUsersZA();
+  }
+  sortByAsc() {
+    this.useroneService.sortByScoreAsc();
+  }
+
+  sortByDes() {
+    this.useroneService.sortByScoreDes();
+  }
+
 }

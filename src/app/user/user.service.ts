@@ -43,4 +43,42 @@ export class UseroneService {
     return this.count;
   }
 
+  sortUsersAZ() {
+    this.users.sort(function(a, b) {
+      const nameA = a.login.toUpperCase(); // ignore upper and lowercase
+      const nameB = b.login.toUpperCase(); // ignore upper and lowercase
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+
+  sortUsersZA() {
+    this.sortUsersAZ();
+    this.users.reverse();
+  }
+
+  sortByScoreAsc() {
+    this.users.sort(function(a, b) {
+      const nameA = +a.score;
+      const nameB = +b.score;
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+  sortByScoreDes() {
+    this.sortByScoreAsc();
+    this.users.reverse();
+  }
+
+
 }
