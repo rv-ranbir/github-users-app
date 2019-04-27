@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary justify-content-center">
+  <div class="row">
+    <ul class="navbar-nav" style="margin-right: 50px">
+      <li class="nav-item dropdown">
+        <button class="btn bg-white dropdown-toggle" style="width: 150px" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sort By
+        </button>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" (click)="sortByAZ()" >Name (A-Z) </a>
+          <a class="dropdown-item" (click)="sortByZA()" >Name (Z-A) </a>
+          <a class="dropdown-item" (click)="sortByAsc()">Rank  <span> <i class="fas fa-arrow-down"></i></span></a>
+          <a class="dropdown-item" (click)="sortByDes()">Rank  <span> <i class="fas fa-arrow-up"></i></span></a>
+        </div>
+      </li>
+    </ul>
+    <form #form="ngForm" class="form-inline my-2 my-lg-0" style="margin-left: 50px" >
+      <div class="input-group">
+        <input class="form-control py-2 border-right-0 border align-center" (keyup.enter)="onSubmit(search.value)" #search type="search" placeholder="Search" [ngModel]>
+        <span class="input-group-append" (click)="onSubmit(search.value)">
+            <div class="input-group-text">
+              <i class="fa fa-search"></i>
+            </div>
+          </span>
+      </div>
+    </form>
+  </div>
+</nav>
