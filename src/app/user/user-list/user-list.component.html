@@ -37,8 +37,8 @@
                 <tbody *ngFor="let repo of repository; let i = index">
                 <tr>
                   <th scope="row">{{i+1}}</th>
-                  <td>{{repo.name}}</td>
-                  <td>{{repo.language}}</td>
+                  <td>{{repo?.name}}</td>
+                  <td>{{repo?.language}}</td>
                 </tr>
                 <tr>
                 </tr>
