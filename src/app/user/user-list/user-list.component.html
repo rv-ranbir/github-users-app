@@ -1,3 +1,37 @@
-<p>
-  user-list works!
-</p>
+<div class="accordion" id="accordionExample">
+  <div class="container">
+    <div class="row">
+      <div style="margin: 10px"> Total Result: {{total}} </div>
+      <div class="card col-md-12 p-3" *ngFor="let user of users; let i = index">
+
+        <div class="card-header" id="details">
+          <div class="row">
+            <div class="col-md-3">
+              <img class="card-img-top rounded-circle"  [src]="user['avatar_url']" alt="Card image cap">
+            </div>
+            <div class="card-body col-md-7">
+              <div class="col-md-10">
+                <h5 class="card-title">{{user['login']}}</h5>
+                Profile Url: {{user['html_url']}}
+                <br>
+                <p class="card-text">Score: {{user['score']}}</p>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <button class="btn btn-outline-primary collapsed float-right" id="detail-btn" type="button" data-toggle="collapse" [attr.data-target]="'#detail'+i" (click)="showDetails(user['login'])">Details</button>
+            </div>
+          </div>
+
+        </div>
+        <div [attr.id]="'detail'+i" class="collapse"  data-parent="#accordionExample">
+          <div class="card-body" >
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item col-md-6">Some Data 1</li>
+              <li class="list-group-item col-md-4">Some Data 2</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
