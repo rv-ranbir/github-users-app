@@ -26,8 +26,24 @@
         <div [attr.id]="'detail'+i" class="collapse"  data-parent="#accordionExample">
           <div class="card-body" >
             <ul class="list-group list-group-flush">
-              <li class="list-group-item col-md-6">Some Data 1</li>
-              <li class="list-group-item col-md-4">Some Data 2</li>
+              <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Language</th>
+                </tr>
+                </thead>
+                <tbody *ngFor="let repo of repository; let i = index">
+                <tr>
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{repo.name}}</td>
+                  <td>{{repo.language}}</td>
+                </tr>
+                <tr>
+                </tr>
+                </tbody>
+              </table>
             </ul>
           </div>
         </div>

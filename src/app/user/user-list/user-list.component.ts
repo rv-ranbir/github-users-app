@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UseroneService } from '../user.service';
 import { ActivatedRoute } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -14,6 +12,8 @@ export class UserListComponent implements OnInit {
   total: any;
   data: any;
   searchQuery: any;
+  repository: any;
+  reposData: any;
 
   constructor( private useroneService: UseroneService,
                private route: ActivatedRoute
@@ -32,6 +32,18 @@ export class UserListComponent implements OnInit {
         this.total = this.useroneService.getTotalCount();
         this.users = this.useroneService.getUserData();
       });
+    });
+    console.log(this.users);
+  }
+
+  showDetails(login: string){
+    this.repository = null;
+    this.useroneService.onGetRepoData(login).subscribe((repoData) => {
+      this.repository = this.useroneService.getRepoData();
+      this.reposData = repoData;
+      console.log(JSON.stringify(repoData));
+      console.log(login);
+      console.log(this.reposData);
     });
   }
 }
